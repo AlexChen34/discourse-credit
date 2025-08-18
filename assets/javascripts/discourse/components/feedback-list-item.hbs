@@ -1,0 +1,92 @@
+<div class="feedback-list-item">
+  <div class="user-rating">
+    <div class="user-data">
+      <LinkTo @route="user" @model={{@feedback.user.username}}>
+        {{avatar @feedback.user imageSize="large"}}
+      </LinkTo>
+      <div class="rating-data">
+        <span class="username">{{@feedback.user.username}}</span>
+        
+        {{#if this.isEditing}}
+          {{! Admin editing mode }}
+          <div class="admin-edit-rating">
+            <RatingInput @value={{this.editRating}} @readOnly={{false}} @onChange={{this.updateRating}} />
+          </div>
+        {{else}}
+          {{! Display mode }}
+          <RatingInput @value={{@feedback.rating}} @readOnly={{true}} />
+        {{/if}}
+        
+        {{#if @feedback.admin_modified}}
+          <span class="admin-modified-indicator">
+            {{d-icon "shield-alt"}} {{i18n "discourse_user_feedbacks.admin_modified"}}
+          </span>
+        {{/if}}
+      </div>
+    </div>
+    <div class="feedback-meta">
+      {{format-date @feedback.created_at format="medium"}}
+      {{#if @feedback.admin_modified_at}}
+        <br>
+        <small class="admin-modified-text">
+          {{i18n "discourse_user_feedbacks.modified_by_admin"}} 
+          {{@feedback.admin_modified_by.username}} 
+          {{format-date @feedback.admin_modified_at format="tiny"}}
+        </small>
+      {{/if}}
+      
+      {{! Admin controls }}
+      {{#if this.currentUser.admin}}
+        <div class="admin-controls">
+          {{#if this.isEditing}}
+            {{d-button 
+              action=(action "saveEdit")
+              icon="check"
+              label="discourse_user_feedbacks.save"
+              class="btn-small btn-primary save-edit"
+            }}
+            {{d-button 
+              action=(action "cancelEdit")
+              icon="times"
+              label="discourse_user_feedbacks.cancel"
+              class="btn-small cancel-edit"
+            }}
+          {{else}}
+            {{d-button 
+              action=(action "startEdit")
+              icon="pencil-alt"
+              label="discourse_user_feedbacks.edit"
+              class="btn-small edit-feedback"
+            }}
+            {{d-button 
+              action=(action "deleteFeedback")
+              icon="trash-alt"
+              label="discourse_user_feedbacks.delete"
+              class="btn-small btn-danger delete-feedback"
+            }}
+          {{/if}}
+        </div>
+      {{/if}}
+    </div>
+  </div>
+  
+  {{#if this.isEditing}}
+    {{! Admin editing review }}
+    <div class="admin-edit-review">
+      {{textarea
+        value=this.editReview
+        placeholder="Edit review..."
+        rows="3"
+        class="edit-review-textarea"
+        input=(action "updateReview")
+      }}
+    </div>
+  {{else if @feedback.review}}
+    {{! Display review }}
+    <p class="feedback-review">
+      {{html-safe @feedback.review}}
+    </p>
+  {{/if}}
+  
+  <hr>
+</div>

@@ -1,0 +1,47 @@
+<div class="user-feedbacks-left"></div>
+<div class="user-feedbacks-right">
+  {{#if this.showRatingInterface}}
+    <div class="ratings-input">
+      <strong>{{i18n "discourse_user_feedbacks.user_feedbacks.add_rating"}}</strong>
+      <p class="rating-help">{{i18n "discourse_user_feedbacks.user_feedbacks.rating_help"}}</p>
+      <RatingInput @value={{this.rating}} @readOnly={{this.readOnly}} @onChange={{fn (mut this.rating)}} />
+    </div>
+    <div class="review-input">
+      {{#if this.siteSettings.user_feedbacks_allow_reviews}}
+        {{textarea
+          rows="5"
+          placeholder=this.placeholder
+          value=this.review
+          disabled=this.readOnly
+          class="review-textarea"
+        }}
+      {{/if}}
+      {{d-button
+        label="discourse_user_feedbacks.user_feedbacks.add_user_feedback"
+        action=(action "createFeedback")
+        disabled=this.disabled
+        type="submit"
+        class="btn-primary create-feedback"
+      }}
+    </div>
+    <hr>
+  {{else if this.hasRatedToday}}
+    <div class="rating-notice">
+      <p>{{i18n "discourse_user_feedbacks.user_feedbacks.already_rated_today"}}</p>
+    </div>
+    <hr>
+  {{/if}}
+  
+  {{#if this.model.feedbacks.length}}
+    {{#each this.model.feedbacks as |feedback index|}}
+      <FeedbackListItem @feedback={{feedback}} @onRefresh={{fn this.refreshFeedbacks}} />
+    {{/each}}
+  {{else}}
+    <div class="empty-state">
+      <span class="empty-state-title">{{i18n "discourse_user_feedbacks.user_feedbacks.empty_state_title"}}</span>
+      <div class="empty-state-body">
+        <p>{{i18n "discourse_user_feedbacks.user_feedbacks.empty_state_body"}}</p>
+      </div>
+    </div>
+  {{/if}}
+</div>

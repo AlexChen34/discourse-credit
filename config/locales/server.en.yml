@@ -1,0 +1,29 @@
+en:
+  site_settings:
+    user_feedbacks_enabled: "Enable user Feedbacks"
+    user_feedbacks_allow_reviews: "Allow users to review each others"
+    user_feedbacks_display_average_ratings_beside_username_on_post: "Display user feedback stats beside username on every post"
+    user_feedbacks_display_average_ratings_on_profile: "Display user feedback stats on user's profile"
+    user_feedbacks_display_average_ratings_on_user_card: "Display user feedback stats on user card"
+    user_feedbacks_hide_feedbacks_from_user: "Hide feedbacks from the user"
+    user_feedbacks_min_trust_level: "Minimum trust level required to give feedback"
+    user_feedbacks_daily_limit: "Maximum number of ratings a user can give per day"
+    user_feedbacks_enable_stats: "Enable statistics dashboard for admins"
+    
+  user_feedback:
+    errors:
+      cannot_rate_self: "You cannot rate yourself"
+      already_rated_today: "You can only rate a user once per day"
+      invalid_rating: "Rating must be positive (1), neutral (0), or negative (-1)"
+      permission_denied: "You don't have permission to perform this action"
+
+  reports:
+    user_feedbacks_total:
+      title: "Total User Feedbacks"
+      description: "Total number of user feedbacks given over time"
+    user_feedbacks_by_rating:
+      title: "User Feedbacks by Rating"
+      description: "Breakdown of feedbacks by positive/neutral/negative ratings"
+    user_feedbacks_activity:
+      title: "User Feedback Activity"
+      description: "Daily user feedback activity showing rating distribution"

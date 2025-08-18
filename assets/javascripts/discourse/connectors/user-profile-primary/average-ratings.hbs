@@ -1,0 +1,12 @@
+<div class="average-ratings">
+  {{#if this.user.rating_count}}
+    <div class="rating-summary">
+      <span class="positive">+{{this.user.positive_count}}</span>
+      <span class="neutral">{{this.user.neutral_count}}</span>
+      <span class="negative">-{{this.user.negative_count}}</span>
+    </div>
+    <span class="rating-count">
+      <LinkTo @route="user.feedbacks" @model={{this.user}}>{{i18n "discourse_user_feedbacks.user_feedbacks.user_ratings_count" count=this.user.rating_count}}</LinkTo>
+    </span>
+  {{/if}}
+</div>

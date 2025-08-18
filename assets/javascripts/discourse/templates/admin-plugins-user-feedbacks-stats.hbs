@@ -1,0 +1,96 @@
+<div class="user-feedback-stats">
+  <div class="admin-controls">
+    <h2>{{i18n "discourse_user_feedbacks.stats.title"}}</h2>
+  </div>
+
+  {{#if model}}
+    <div class="stats-container">
+      <!-- Daily Statistics -->
+      <div class="stats-section">
+        <h3>{{i18n "discourse_user_feedbacks.stats.daily"}}</h3>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number">{{model.daily.total_feedbacks}}</div>
+            <div class="stat-label">{{i18n "discourse_user_feedbacks.stats.total_feedbacks"}}</div>
+          </div>
+          <div class="stat-card positive">
+            <div class="stat-number">{{model.daily.positive}}</div>
+            <div class="stat-label">{{i18n "discourse_user_feedbacks.stats.positive_count"}}</div>
+          </div>
+          <div class="stat-card neutral">
+            <div class="stat-number">{{model.daily.neutral}}</div>
+            <div class="stat-label">{{i18n "discourse_user_feedbacks.stats.neutral_count"}}</div>
+          </div>
+          <div class="stat-card negative">
+            <div class="stat-number">{{model.daily.negative}}</div>
+            <div class="stat-label">{{i18n "discourse_user_feedbacks.stats.negative_count"}}</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">{{model.daily.unique_raters}}</div>
+            <div class="stat-label">{{i18n "discourse_user_feedbacks.stats.unique_raters"}}</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">{{model.daily.unique_rated}}</div>
+            <div class="stat-label">{{i18n "discourse_user_feedbacks.stats.unique_rated"}}</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Weekly Statistics -->
+      <div class="stats-section">
+        <h3>{{i18n "discourse_user_feedbacks.stats.weekly"}}</h3>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number">{{model.weekly.total_feedbacks}}</div>
+            <div class="stat-label">{{i18n "discourse_user_feedbacks.stats.total_feedbacks"}}</div>
+          </div>
+          <div class="stat-card positive">
+            <div class="stat-number">{{model.weekly.positive}}</div>
+            <div class="stat-label">{{i18n "discourse_user_feedbacks.stats.positive_count"}}</div>
+          </div>
+          <div class="stat-card neutral">
+            <div class="stat-number">{{model.weekly.neutral}}</div>
+            <div class="stat-label">{{i18n "discourse_user_feedbacks.stats.neutral_count"}}</div>
+          </div>
+          <div class="stat-card negative">
+            <div class="stat-number">{{model.weekly.negative}}</div>
+            <div class="stat-label">{{i18n "discourse_user_feedbacks.stats.negative_count"}}</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">{{model.weekly.unique_raters}}</div>
+            <div class="stat-label">{{i18n "discourse_user_feedbacks.stats.unique_raters"}}</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">{{model.weekly.unique_rated}}</div>
+            <div class="stat-label">{{i18n "discourse_user_feedbacks.stats.unique_rated"}}</div>
+          </div>
+        </div>
+
+        <!-- Daily Breakdown -->
+        {{#if model.weekly.daily_breakdown}}
+          <div class="daily-breakdown">
+            <h4>Daily Breakdown</h4>
+            <div class="breakdown-grid">
+              {{#each model.weekly.daily_breakdown as |day|}}
+                <div class="day-card">
+                  <div class="day-date">{{format-date day.date format="short"}}</div>
+                  <div class="day-stats">
+                    <span class="total">{{day.total}}</span>
+                    <span class="positive">+{{day.positive}}</span>
+                    <span class="neutral">=
+                    {{day.neutral}}</span>
+                    <span class="negative">-{{day.negative}}</span>
+                  </div>
+                </div>
+              {{/each}}
+            </div>
+          </div>
+        {{/if}}
+      </div>
+    </div>
+  {{else}}
+    <div class="loading-container">
+      {{loading-spinner size="large"}}
+    </div>
+  {{/if}}
+</div>

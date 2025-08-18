@@ -1,0 +1,42 @@
+<div class="rating-selector">
+  {{#unless this.readOnly}}
+    <div class="rating-buttons">
+      <button class="rating-btn positive {{if this.isPositive 'selected'}}" 
+              {{on "click" (fn this.changeRating 1)}}
+              title="Positive"
+              type="button">
+        {{d-icon "thumbs-up"}} {{i18n "discourse_user_feedbacks.rating.positive"}}
+      </button>
+      
+      <button class="rating-btn neutral {{if this.isNeutral 'selected'}}" 
+              {{on "click" (fn this.changeRating 0)}}
+              title="Neutral"
+              type="button">
+        {{d-icon "minus"}} {{i18n "discourse_user_feedbacks.rating.neutral"}}
+      </button>
+      
+      <button class="rating-btn negative {{if this.isNegative 'selected'}}" 
+              {{on "click" (fn this.changeRating -1)}}
+              title="Negative"
+              type="button">
+        {{d-icon "thumbs-down"}} {{i18n "discourse_user_feedbacks.rating.negative"}}
+      </button>
+    </div>
+  {{else}}
+    <div class="rating-display">
+      {{#if this.isPositive}}
+        <span class="rating-text positive">
+          {{d-icon "thumbs-up"}} {{i18n "discourse_user_feedbacks.rating.positive"}}
+        </span>
+      {{else if this.isNeutral}}
+        <span class="rating-text neutral">
+          {{d-icon "minus"}} {{i18n "discourse_user_feedbacks.rating.neutral"}}
+        </span>
+      {{else if this.isNegative}}
+        <span class="rating-text negative">
+          {{d-icon "thumbs-down"}} {{i18n "discourse_user_feedbacks.rating.negative"}}
+        </span>
+      {{/if}}
+    </div>
+  {{/unless}}
+</div>
