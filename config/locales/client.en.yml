@@ -2,7 +2,7 @@ en:
   js:
     user:
       feedback:
-        title: "Feedback"
+        title: "Credit"
       user_feedbacks:
         title: "User Feedbacks"
         nav_label: "Feedbacks"
