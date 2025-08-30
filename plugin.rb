@@ -2,7 +2,7 @@
 # about: A comprehensive user feedback and credit system for Discourse
 # version: 1.0.0
 # authors: Alex Chan
-# url: https://github.com/AlexChen34/discourse-user-crediten_string_literal: true
+# url: https://github.com/AlexChen34/discourse-crediten_string_literal: true
 # name: discourse-user-credit
 # about: A comprehensive user feedback and credit system for Discourse communities
 # version: 1.1.12

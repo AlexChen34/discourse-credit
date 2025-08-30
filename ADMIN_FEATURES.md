@@ -119,7 +119,7 @@
 ---
 
 ## Repository Information
-- **GitHub**: https://github.com/AlexChen34/discourse-user-credit
+- **GitHub**: https://github.com/AlexChen34/discourse-credit
 - **Current Version**: v1.1.0
 - **Backup Version**: v1.0.3 (stored locally)
 - **Status**: Production ready with full admin management capabilities

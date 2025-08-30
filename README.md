@@ -45,7 +45,7 @@ A comprehensive user feedback and credit system for Discourse that allows commun
 1. Clone this repository to your Discourse plugins directory:
 ```bash
 cd /path/to/discourse/plugins
-git clone https://github.com/AlexChen34/discourse-user-credit.git
+git clone https://github.com/AlexChen34/discourse-credit.git
 ```
 
 2. Rebuild your Discourse instance:
@@ -129,7 +129,7 @@ This plugin is **production-ready** and has been thoroughly tested with:
 ## Support & Contributing
 
 ### 🐛 Issues & Bug Reports
-For issues, feature requests, or contributions, please visit our [GitHub repository](https://github.com/AlexChen34/discourse-user-credit).
+For issues, feature requests, or contributions, please visit our [GitHub repository](https://github.com/AlexChen34/discourse-credit).
 
 ### 📖 Documentation
 - **Installation Guide**: See above installation steps
