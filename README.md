@@ -155,7 +155,7 @@ We welcome contributions! Please:
 
 ## 📚 Credits
 
-**Development Team**: Created by Alex Chan  
+**Development Team**: Created by Alex  
 **Framework**: Built on Discourse platform with Ruby on Rails and Ember.js
 
 ---
