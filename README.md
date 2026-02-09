@@ -1,6 +1,6 @@
 # Discourse User Credit Plugin v1.0.0 ✅
 
-A comprehensive user feedback and credit system for Discourse that allows community members to rate each other with positive, neutral, or negative feedback. **Created by Alex Chan - Fully tested and working with admin functionality!**
+A comprehensive user feedback and credit system for Discourse that allows community members to rate each other with positive, neutral, or negative feedback. **Created by Alex - Fully tested and working with admin functionality!**
 
 ## 🎉 Features
 
@@ -157,6 +157,7 @@ We welcome contributions! Please:
 
 **Development Team**: Created by Alex  
 **Framework**: Built on Discourse platform with Ruby on Rails and Ember.js
+**Acknowledgement**: Ahmed_Gagan
 
 ---
 
